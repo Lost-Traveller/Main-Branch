@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Main Branch: Unleashing Wellington's 60+ Innovation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --main-accent: #2563eb;
+    --main-dark: #1e293b;
+    --main-light: #f1f5ff;
+    --good-green: #22c55e;
+    --warn-orange: #f59e0b;
+    --old-gold: #fbbf24;
+    --danger-red: #ef4444;
+    --panel-bg: #fff;
+    --panel-border: #e5e7eb;
+    --shadow: 0 4px 24px rgba(37,99,235,0.09);
+    --radius: 18px;
+  }
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--main-light);
+    color: var(--main-dark);
+  }
+  .main-wrapper {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 0.9em 3em 0.9em;
+  }
+  .hero {
+    background: linear-gradient(90deg, var(--main-accent) 65%, #60a5fa 100%);
+    color: #fff;
+    padding: 2.5em 2em 2em 2em;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin-top: 2.1em;
+    margin-bottom: 2.2em;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero h1 {
+    font-size: 2.6em;
+    font-weight: 900;
+    margin: 0 0 0.25em 0;
+    letter-spacing: 0.01em;
+    color: #fff;
+    text-shadow: 0 3px 18px rgba(37,99,235,0.18);
+  }
+  .hero .subtitle {
+    font-size: 1.23em;
+    font-weight: 700;
+    opacity: .96;
+    margin: 0 0 1.2em 0;
+  }
+  .main-branch-svg {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 1em auto;
+    display: block;
+  }
+  .age-slider-section {
+    background: var(--panel-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2em 2em 1.5em 2em;
+    margin-bottom: 2.2em;
+    text-align: center;
+    position: relative;
+  }
+  .age-slider-section h2 {
+    font-size: 1.15em;
+    color: var(--main-accent);
+    font-weight: 700;
+    margin-bottom: 1.2em;
+  }
+  .age-slider-label {
+    font-size: 1.04em;
+    font-weight: 600;
+    color: #334155;
+    margin-top: 1.2em;
+  }
+  .age-slider {
+    margin: 1.2em auto 0.3em auto;
+    width: 70%;
+    accent-color: var(--main-accent);
+    height: 4px;
+  }
+  .age-slider-output {
+    font-size: 1.7em;
+    font-weight: 900;
+    color: var(--main-accent);
+    margin-top: .15em;
+    letter-spacing: .04em;
+    display: inline-block;
+    background: #e0e7ef;
+    padding: 0.1em 0.6em;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(37,99,235,0.08);
+  }
+  .slider-fact {
+    margin-top: 1.2em;
+    font-size: 1.06em;
+    font-weight: 600;
+    color: var(--good-green);
+    min-height: 1.7em;
+    transition: color 0.3s;
+  }
+  .panel {
+    background: var(--panel-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2.1em 2em 2em 2em;
+    margin-bottom: 2.2em;
+    border-left: 7px solid var(--main-accent);
+    position: relative;
+    transition: box-shadow 0.2s;
+  }
+  .panel .panel-title {
+    font-size: 1.14em;
+    font-weight: 800;
+    color: var(--main-accent);
+    margin-bottom: .7em;
+    cursor: pointer;
+    display: flex; align-items: center;
+    gap: .7em;
+    user-select: none;
+  }
+  .panel .toggle {
+    font-size: 1.6em; font-weight: 400;
+    color: var(--main-accent); transition: transform .25s;
+  }
+  .panel-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(.77,.2,.05,1), padding .2s;
+    padding: 0;
+  }
+  .panel-content.open {
+    max-height: 1000px;
+    padding: 1.1em 0 0 0;
+  }
+  .datacards {
+    display: flex; gap: 1.3em; flex-wrap: wrap; margin-bottom: 1.2em; margin-top: 0.7em;
+  }
+  .datacard {
+    flex: 1 1 180px; min-width: 160px;
+    border-radius: 10px;
+    background: #f1f5ff;
+    box-shadow: 0 2px 11px rgba(37,99,235,0.07);
+    padding: 1.1em 0.9em;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  .datacard .num {
+    font-size: 1.55em; font-weight: 900; color: var(--main-accent);
+    display: block; letter-spacing: .01em;
+  }
+  .datacard .lab {
+    font-size: .98em; color: #334155; margin-top:.3em;
+  }
+  .datacard .small {
+    font-size: .82em; color: #64748b;
+  }
+  .buildviz {
+    margin: 1.7em 0 1.7em 0;
+    text-align: center;
+  }
+  .code-flow {
+    background: #0f172a;
+    color: #e0e7ef;
+    border-radius: 15px;
+    font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
+    display: inline-block;
+    padding: 1.1em 2.1em 1.1em 2.1em;
+    font-size: 1.13em;
+    box-shadow: 0 2px 16px rgba(37,99,235,0.13);
+    letter-spacing: .01em;
+    position: relative;
+    min-width: 260px;
+    max-width: 99vw;
+  }
+  .code-branch {
+    color: var(--warn-orange);
+    font-weight: 700;
+  }
+  .code-feature {
+    color: var(--good-green);
+    font-weight: 700;
+  }
+  .code-legacy {
+    color: var(--danger-red);
+    font-weight: 700;
+  }
+  .code-comment {
+    color: #60a5fa;
+    font-style: italic;
+  }
+  .footer {
+    margin-top: 2.8em;
+    background: #f1f5ff;
+    color: #2563eb;
+    padding: 1.3em 1.5em 1em 1.5em;
+    border-radius: 12px;
+    font-size: 1em;
+    border-top: 3px solid var(--main-accent);
+    box-shadow: 0 2px 8px rgba(37,99,235,0.02);
+    max-width: 700px;
+    margin-left: auto; margin-right: auto;
+    text-align: center;
+  }
+  .footer a { color: var(--main-accent); text-decoration: underline; }
+  .panel .panel-title:focus {outline:2px solid var(--main-accent);}
+  @media (max-width: 600px) {
+    .datacards {flex-direction: column;}
+    .main-wrapper {padding: 0 0.2em 3em 0.2em;}
+    .hero {padding: 1.5em 0.6em;}
+    .panel, .age-slider-section {padding: 1em 0.6em;}
+    .buildviz .code-flow {font-size:.98em;padding:1em;}
+  }
+  </style>
+</head>
+<body>
+  <div class="main-wrapper">
+    <!-- HERO -->
+    <div class="hero">
+      <svg class="main-branch-svg" viewBox="0 0 116 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="116" height="116" rx="58" fill="#fff" fill-opacity=".04"/>
+        <rect x="16" y="56" width="84" height="11" rx="5.5" fill="#fff"/>
+        <rect x="54" y="20" width="11" height="77" rx="5.5" fill="#fff"/>
+        <circle cx="59.5" cy="61.5" r="15.5" fill="#2563eb"/>
+      </svg>
+      <h1>Main Branch</h1>
+      <div class="subtitle">Wellington’s 60+ Innovators: <br>Not a side project.<br>
+        <span style="color:#fbbf24;">We’re the main branch.</span>
+      </div>
+    </div>
+    <!-- INTERACTIVE AGE STEREOTYPE BREAKER -->
+    <div class="age-slider-section">
+      <h2>Adjust the Age Slider<br><span style="font-size:.87em;font-weight:400;color:#64748b;">Who do you think is most likely to start a successful tech business?</span></h2>
+      <input type="range" min="20" max="80" value="60" class="age-slider" id="ageSlider">
+      <div class="age-slider-label">Entrepreneur’s Age: <span class="age-slider-output" id="ageSliderOutput">60</span></div>
+      <div class="slider-fact" id="sliderFact"></div>
+    </div>
+    <!-- DATA CARDS -->
+    <div class="datacards">
+      <div class="datacard">
+        <span class="num" id="card1">25% </span>
+        <span class="lab">Wellingtonians 60+ by 2043</span>
+        <span class="small">(Stats NZ projection)</span>
+      </div>
+      <div class="datacard">
+        <span class="num" id="card2">71% </span>
+        <span class="lab">65+ use the internet daily</span>
+        <span class="small">(Stats NZ 2022)</span>
+      </div>
+      <div class="datacard">
+        <span class="num" id="card3"> x2</span>
+        <span class="lab">More likely<br>to start a business (55-64 vs 20-34)</span>
+        <span class="small">(Kauffman/NZ MBIE)</span>
+      </div>
+      <div class="datacard">
+        <span class="num" id="card4"> 300%</span>
+        <span class="lab">Growth in tech upskilling (55+)</span>
+        <span class="small">(NZTech 2023)</span>
+      </div>
+    </div>
+    <!-- BUILD VISUALISATION -->
+    <div class="buildviz">
+      <div style="font-weight:800;color:var(--main-accent);margin-bottom:.6em;font-size:1.13em;">Building With Experience: The Main Branch Metaphor</div>
+      <div class="code-flow">
+        <span class="code-comment">// In Wellington, innovation is built on a stable core</span><br>
+        <span class="code-branch">main_branch</span> = <span class="code-feature">production_ready()</span> <br>
+        <span class="code-feature">feature_branch</span> = <span class="code-branch">main_branch</span>.experiment()<br>
+        <span class="code-legacy">// Legacy? No, wisdom.</span><br>
+        <span class="code-branch">main_branch</span>.merge(<span class="code-feature">feature_branch</span>)<br>
+        <span class="code-comment">// The real work gets done here.</span>
+      </div>
+    </div>
+    <!-- EXPANDABLE PANELS FOR BRIEFING SECTIONS -->
+    <div class="panel">
+      <div class="panel-title" tabindex="0">
+        <span class="toggle">+</span> 1. Demographic Shifts: The Over-60s Are a Growing Resource
+      </div>
+      <div class="panel-content">
+        <ul>
+          <li>19% of New Zealanders are 60+ now; 25% by 2043 (Stats NZ).</li>
+          <li>Wellington has the highest percentage of degree holders; tertiary attainment in over-60s is rising.</li>
+          <li>Labour force participation for 65+ is up to 25% and growing (MBIE 2022).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title" tabindex="0">
+        <span class="toggle">+</span> 2. Innovation, Productivity & Business Value
+      </div>
+      <div class="panel-content">
+        <ul>
+          <li>Mixed-age teams produce more patents and higher-impact innovations (Harvard Business Review).</li>
+          <li>People aged 55-64 are more likely to start a business than those aged 20-34 (NZ/US data).</li>
+          <li>Older entrepreneurs have higher business survival rates (OECD).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title" tabindex="0">
+        <span class="toggle">+</span> 3. The Over-60s & Digital Capability
+      </div>
+      <div class="panel-content">
+        <ul>
+          <li>72% of Kiwis aged 65+ use the internet daily (Stats NZ 2022).</li>
+          <li>Many build websites, run online stores, and manage business social media (AUT 2022).</li>
+          <li>Participation in coding bootcamps among 55+ is up 300% since 2017 (NZTech 2023).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title" tabindex="0">
+        <span class="toggle">+</span> 4. Benefits to Wellington’s Business Community
+      </div>
+      <div class="panel-content">
+        <ul>
+          <li>Experience brings judgement and stability—critical for risk management and growth.</li>
+          <li>Over-60s make ideal mentors and knowledge-transfer agents, reducing brain drain.</li>
+          <li>Mixed-age teams outperform homogenous ones in creative output (Deloitte 2019).</li>
+          <li>Deep local and international business networks.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title" tabindex="0">
+        <span class="toggle">+</span> 5. Addressing Stereotypes & Bias
+      </div>
+      <div class="panel-content">
+        <ul>
+          <li>The idea that over-60s are digital novices is outdated.</li>
+          <li>Average age of a successful tech founder is 45 (Harvard 2018).</li>
+          <li>Under-utilising experienced workers costs the economy billions (NZIER 2021).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title" tabindex="0">
+        <span class="toggle">+</span> 6. Recommendations
+      </div>
+      <div class="panel-content">
+        <ul>
+          <li>Reframe the narrative: “Main Branch” as core contributors.</li>
+          <li>Recruit older professionals for mentorship, leadership, and technical roles.</li>
+          <li>Promote intergenerational teams and fund cross-age projects.</li>
+          <li>Provide upskilling and digital training—tailored for the experienced.</li>
+          <li>Publicise Wellington-based 60+ innovation stories.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title" tabindex="0">
+        <span class="toggle">+</span> Conclusion
+      </div>
+      <div class="panel-content">
+        <p>Wellington can’t afford to sideline a quarter of its potential workforce. The over-60s are ready and able to build, mentor, innovate, and stabilise the city’s business ecosystem. Let’s shift from a narrative of “step aside” to “step up”—the Main Branch is where the real work gets done.</p>
+        <ul style="font-size:.97em;color:#64748b;">
+          <li>Stats NZ, “Population Projections” (2023)</li>
+          <li>MBIE, “Labour Market Statistics” (2022)</li>
+          <li>Kauffman Foundation, “Entrepreneurship Trends” (2021)</li>
+          <li>OECD, “Ageing and Productivity” (2019)</li>
+          <li>NZTech, “Digital Skills Aotearoa” (2023)</li>
+          <li>AUT, “Older Adults & Digital Life” (2022)</li>
+          <li>Deloitte, “Diversity & Inclusion Report” (2019)</li>
+          <li>NZIER, “Economic Impact of Age Discrimination” (2021)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer">
+      <b>Want to see real innovation?</b> <br>
+      This briefing was built by Main Branch—Wellington’s 60+ digital creators.<br>
+      <span style="opacity:0.7;">© 2024 Main Branch | SellMyHomeNZ</span>
+    </div>
+  </div>
+  <script>
+    // Age slider facts
+    const facts = [
+      {age: 20, text: "Most believe the next tech unicorn will come from a 20-something. But is that true?" },
+      {age: 30, text: "At 30, many are still building experience. Average successful founder's age: 45 (Harvard)." },
+      {age: 40, text: "Many leading NZ entrepreneurs are in their 40s and 50s." },
+      {age: 50, text: "Most valuable patents and tech businesses are started by people 50+." },
+      {age: 60, text: "People aged 55-64 are more likely to start a business than those 20-34 (NZ/US data)." },
+      {age: 70, text: "Nearly 1 in 4 continue building, mentoring, and founding digital businesses." },
+      {age: 80, text: "Creativity and innovation don't retire. The 'Main Branch' is still shipping code." }
+    ];
+    const ageSlider = document.getElementById('ageSlider');
+    const ageSliderOutput = document.getElementById('ageSliderOutput');
+    const sliderFact = document.getElementById('sliderFact');
+    function updateFact(val) {
+      let age = parseInt(val,10);
+      ageSliderOutput.textContent = age;
+      let msg = facts[0].text;
+      for (let i=0; i<facts.length; i++) {
+        if (age <= facts[i].age) { msg = facts[i].text; break; }
+        if (i === facts.length-1) msg = facts[i].text;
+      }
+      sliderFact.textContent = msg;
+      sliderFact.style.color = age >= 60 ? "#22c55e" : "#2563eb";
+    }
+    ageSlider.addEventListener('input', e => updateFact(e.target.value));
+    updateFact(ageSlider.value);
+
+    // Expand/collapse panels
+    document.querySelectorAll('.panel').forEach(panel => {
+      const title = panel.querySelector('.panel-title');
+      const content = panel.querySelector('.panel-content');
+      const toggleIcon = panel.querySelector('.toggle');
+      title.addEventListener('click', () => {
+        content.classList.toggle('open');
+        if (content.classList.contains('open')) {
+          toggleIcon.textContent = '–';
+        } else {
+          toggleIcon.textContent = '+';
+        }
+      });
+      // Keyboard accessibility
+      title.addEventListener('keydown', e => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          title.click();
+        }
+      });
+    });
+  // Animate datacards on load (handles %, x, etc)
+setTimeout(()=>{
+  document.querySelectorAll('.datacard .num').forEach((el,i)=>{
+    let raw = el.textContent.trim();
+    let match = raw.match(/^([0-9.]+)([%x]*)$/);
+    if (!match) return;
+    let end = parseFloat(match[1]);
+    let unit = match[2] || '';
+    let c = 0, inc = end > 100 ? end/50 : 1, interval = 30;
+    let anim = setInterval(()=>{
+      c += inc;
+      if (c >= end) {
+        el.textContent = end + unit;
+        clearInterval(anim);
+        return;
+      }
+      el.textContent = (unit === 'x' ? (c/end).toFixed(1)+'x' : Math.round(c)+unit);
+    }, interval+10*i);
+  });
+},400);
+  </script>
+</body>
+</html>
